@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="dhamo.aleksander.Elenco.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="0">
+            <ImageButton x:Name="Add" Clicked="NewFilm_Clicked" Source="add.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            <ImageButton x:Name="Salva" Clicked="Salva_Clicked"  Source="salva.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            <ImageButton x:Name="Aggiorna" Clicked="listaImpegni_Refreshing" Source="aggiorna.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+            <ImageButton x:Name="Remove" Clicked="rimuovi_Clicked" Source="bidone.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent"/>
+        </StackLayout>
+
+        <ListView Grid.Row="1"
+          x:Name="listaFilm"
+          HasUnevenRows="true"
+          IsPullToRefreshEnabled="true"
+          Refreshing="listaImpegni_Refreshing"
+          ItemTapped="listaImpegni_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2"
+                           Source="{Binding Immagine}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                            <Label Grid.Column="1"
+                            Text="{Binding Titolo}"
+                            FontAttributes="Bold" />
+                            <ImageButton x:Name="openVideo" Clicked="openVideo_Clicked"  Grid.RowSpan="2" CommandParameter="{Binding .}"
+                           Source="video.png"
+                           BackgroundColor="Transparent"
+                           Grid.Column="1"
+                           HorizontalOptions="End"
+                           HeightRequest="30"
+                           WidthRequest="30" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>

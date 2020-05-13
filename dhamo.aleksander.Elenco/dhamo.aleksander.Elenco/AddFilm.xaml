@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="dhamo.aleksander.Elenco.AddFilm">
+    <StackLayout Orientation="Vertical"
+                 Margin="12" Padding="24"
+                 BackgroundColor="WhiteSmoke" 
+                 HorizontalOptions="Center" VerticalOptions="Center">
+        <Entry x:Name="edtNewFilm" Placeholder="Inserisci il nome del film" HorizontalOptions="FillAndExpand" TextChanged="Film_TextChanged" />
+        <Entry x:Name="edtNewLink" Placeholder="Inserisci il link" HorizontalOptions="FillAndExpand" TextChanged="Film_TextChanged"/>
+        <Button x:Name="Genere" Text="Genere" TextColor="Black" Clicked="Genere_Clicked" BackgroundColor="Transparent"/>
+        <Button x:Name="Aggiungi" Text="AGGIUNGI" TextColor="White" Clicked="Aggiungi_Clicked"  CornerRadius="10" IsEnabled="False"/>
+    </StackLayout>
+</pages:PopupPage>
